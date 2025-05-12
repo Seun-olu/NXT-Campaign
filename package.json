@@ -1,24 +1,21 @@
 {
-  "name": "landing-monorepo",
-  "private": true,
+  "name": "landing-pages",
+  "version": "1.0.0",
+  "main": "index.js",
   "scripts": {
-    "build": "turbo run build",
-    "dev": "turbo run dev",
-    "lint": "turbo run lint",
-    "format": "prettier --write \"**/*.{ts,tsx,md}\"",
-    "check-types": "turbo run check-types"
+    "dev": "live-server --open=betatips/index.html --port=8080",
+    "build": "tailwindcss -i ./common/tailwind.css -o ./common/styles.css --minify &&     cp common/styles.css betatips &&     cp common/styles.css madina-lottery &&     cp common/styles.css jackpot-connect &&     cp common/styles.css betalotto &&     cp common/styles.css nheal"
   },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
   "devDependencies": {
-    "prettier": "^3.5.3",
-    "turbo": "^2.5.3",
-    "typescript": "5.8.2"
-  },
-  "engines": {
-    "node": ">=18"
-  },
-  "packageManager": "npm@10.8.2",
-  "workspaces": [
-    "apps/*",
-    "packages/*"
-  ]
+    "@tailwindcss/cli": "^4.1.6",
+    "autoprefixer": "^10.4.21",
+    "concurrently": "^9.1.2",
+    "live-server": "^1.2.2",
+    "postcss": "^8.5.3",
+    "tailwindcss": "^4.1.6"
+  }
 }

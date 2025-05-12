@@ -1,0 +1,15 @@
+/* common/tailwind.css  — v4 syntax */
+@import "tailwindcss";
+
+/* project-specific tweaks (CSS-first config) */
+@theme {
+  --font-display: "Inter", sans-serif;
+}
+
+@layer components {
+  .btn {
+    @apply inline-block px-6 py-3 font-semibold rounded-lg shadow transition
+           hover:opacity-90 focus-visible:outline-2
+           focus-visible:outline-offset-2;
+  }
+}

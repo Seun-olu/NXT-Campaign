@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Jackpot Connect</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <style>
+      :root {
+        --bg: #064e3b; /* Very dark green background */
+        --card: #065f46; /* Slightly lighter green for cards */
+        --accent: #10b981; /* Bright emerald green for accents */
+        --text: #f1f5f9; /* Light gray, almost white */
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", system-ui, sans-serif;
+      }
+      header,
+      footer {
+        background: var(--bg);
+      }
+      .card,
+      details {
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+      }
+      .btn {
+        background: var(--accent);
+        color: #fff;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        transition: all 0.2s;
+      }
+      .btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+      nav a {
+        transition: color 0.2s;
+      }
+      nav a:hover {
+        color: var(--accent);
+      }
+      .logo {
+        color: var(--accent);
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 4rem;
+        left: 0;
+        align-items: center;
+        right: 0;
+        background: var(--bg);
+        padding: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+        z-index: 20;
+      }
+      .mobile-menu.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body class="font-sans">
+    <!-- Top Bar -->
+    <header class="fixed w-full z-10 shadow-md">
+      <div
+        class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between"
+      >
+        <div class="flex items-center">
+          <i class="fas fa-dice text-accent mr-2"></i>
+          <span class="logo">Jackpot Connect</span>
+        </div>
+
+        <!-- Mobile menu button -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-gray-300 focus:outline-none"
+        >
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+
+        <nav class="hidden md:flex space-x-6 text-sm items-center">
+          <a href="#how" class="hover:text-accent transition-colors"
+            >How It Works</a
+          >
+          <a href="#why" class="hover:text-accent transition-colors">Why Us</a>
+          <a href="#stories" class="hover:text-accent transition-colors"
+            >Success Stories</a
+          >
+          <a href="#faq" class="hover:text-accent transition-colors">FAQ</a>
+        </nav>
+      </div>
+
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="mobile-menu">
+        <nav class="flex flex-col space-y-4 text-center">
+          <a href="#how" class="py-2 hover:text-accent transition-colors"
+            >How It Works</a
+          >
+          <a href="#why" class="py-2 hover:text-accent transition-colors"
+            >Why Us</a
+          >
+          <a href="#stories" class="py-2 hover:text-accent transition-colors"
+            >Success Stories</a
+          >
+          <a href="#faq" class="py-2 hover:text-accent transition-colors"
+            >FAQ</a
+          >
+          <a href="sms:30000?body=PLAY" class="btn mx-auto text-center"
+            >Play Now</a
+          >
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="pt-28 pb-16 bg-gradient-to-b from-card to-bg">
+      <div
+        class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center"
+      >
+        <div class="md:w-1/2 md:pr-8 text-center md:text-left mb-8 md:mb-0">
+          <h1 class="text-3xl md:text-4xl font-extrabold mb-4">
+            Experience Instant Lottery Thrills—Play on Your Phone
+          </h1>
+          <p class="mb-6 text-lg opacity-80">
+            Join via WhatsApp or SMS — no app or data needed to unlock new
+            prizes every day.
+          </p>
+          <a href="sms:30000?body=PLAY" class="btn inline-flex items-center">
+            <i class="fas fa-sms mr-2"></i>
+            Text "PLAY" to 30000
+          </a>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <img
+            src="../common/images/jack.png"
+            alt="Phone lottery"
+            class="rounded-lg shadow-lg max-w-sm w-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how" class="py-16">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12 relative">
+          <span class="inline-block pb-2 border-b-2 border-accent"
+            >How It Works</span
+          >
+        </h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center"
+        >
+          <div class="card p-6">
+            <div
+              class="bg-bg p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+            >
+              <i
+                class="fas fa-comment-dots text-2xl"
+                style="color: var(--accent)"
+              ></i>
+            </div>
+            <p class="font-semibold text-lg">Send "PLAY"</p>
+            <p class="text-sm opacity-75 mt-2">via SMS or WhatsApp to 30000</p>
+          </div>
+          <div class="card p-6">
+            <div
+              class="bg-bg p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+            >
+              <i class="fas fa-dice text-2xl" style="color: var(--accent)"></i>
+            </div>
+            <p class="font-semibold text-lg">Pick Numbers</p>
+            <p class="text-sm opacity-75 mt-2">Choose 3–5 digits</p>
+          </div>
+          <div class="card p-6">
+            <div
+              class="bg-bg p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+            >
+              <i
+                class="fas fa-ticket-alt text-2xl"
+                style="color: var(--accent)"
+              ></i>
+            </div>
+            <p class="font-semibold text-lg">Get Confirmation</p>
+            <p class="text-sm opacity-75 mt-2">Your ticket is live</p>
+          </div>
+          <div class="card p-6">
+            <div
+              class="bg-bg p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4"
+            >
+              <i
+                class="fas fa-wallet text-2xl"
+                style="color: var(--accent)"
+              ></i>
+            </div>
+            <p class="font-semibold text-lg">Win & Claim</p>
+            <p class="text-sm opacity-75 mt-2">Instant payouts</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why" class="py-16 bg-black bg-opacity-20">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12 relative">
+          <span class="inline-block pb-2 border-b-2 border-accent"
+            >Why Choose Us?</span
+          >
+        </h2>
+        <div
+          class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm"
+        >
+          <div class="card p-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-stopwatch text-accent text-xl mr-3"></i>
+              <p class="font-semibold">Daily Odds</p>
+            </div>
+            <p class="opacity-75">
+              New draw opportunities every single day with exciting prize pools
+            </p>
+          </div>
+          <div class="card p-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-wallet text-accent text-xl mr-3"></i>
+              <p class="font-semibold">Instant Payouts</p>
+            </div>
+            <p class="opacity-75">
+              Receive your winnings immediately to mobile money or as airtime
+            </p>
+          </div>
+          <div class="card p-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-signal text-accent text-xl mr-3"></i>
+              <p class="font-semibold">No Data Needed</p>
+            </div>
+            <p class="opacity-75">
+              Works on any phone type, even without internet access
+            </p>
+          </div>
+          <div class="card p-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-shield-alt text-accent text-xl mr-3"></i>
+              <p class="font-semibold">Licensed VAS</p>
+            </div>
+            <p class="opacity-75">
+              Fully compliant with regulations and secure payment processing
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section id="stories" class="py-16">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12 relative">
+          <span class="inline-block pb-2 border-b-2 border-accent"
+            >Success Stories</span
+          >
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div class="card p-6 flex items-start">
+            <div
+              class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fas fa-user text-lg"></i>
+            </div>
+            <div class="ml-4">
+              <p class="font-semibold text-lg">Grace • Ibadan</p>
+              <p class="opacity-80 mt-1">
+                "I won ₦10,000 from a simple text message! The money was in my
+                account within minutes. I'm playing daily now!"
+              </p>
+              <div class="flex mt-2 text-accent">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="card p-6 flex items-start">
+            <div
+              class="bg-accent text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0"
+            >
+              <i class="fas fa-user text-lg"></i>
+            </div>
+            <div class="ml-4">
+              <p class="font-semibold text-lg">Musa • Kaduna</p>
+              <p class="opacity-80 mt-1">
+                "This has become my new side hustle! I play every morning and
+                have won three times already this month."
+              </p>
+              <div class="flex mt-2 text-accent">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 bg-black bg-opacity-20">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12 relative">
+          <span class="inline-block pb-2 border-b-2 border-accent"
+            >Frequently Asked Questions</span
+          >
+        </h2>
+        <div class="space-y-4">
+          <details class="card p-4 group">
+            <summary
+              class="font-semibold cursor-pointer flex items-center justify-between"
+            >
+              How much does it cost?
+              <i
+                class="fas fa-chevron-down text-accent transition-transform group-open:rotate-180"
+              ></i>
+            </summary>
+            <p class="mt-3 opacity-80 pl-4 border-l-2 border-accent">
+              ₦100 per play. You can play as many times as you want each day to
+              increase your chances of winning.
+            </p>
+          </details>
+          <details class="card p-4 group">
+            <summary
+              class="font-semibold cursor-pointer flex items-center justify-between"
+            >
+              Is it legal?
+              <i
+                class="fas fa-chevron-down text-accent transition-transform group-open:rotate-180"
+              ></i>
+            </summary>
+            <p class="mt-3 opacity-80 pl-4 border-l-2 border-accent">
+              Yes—we're a fully registered VAS provider with all necessary
+              licensing to operate in Nigeria.
+            </p>
+          </details>
+          <details class="card p-4 group">
+            <summary
+              class="font-semibold cursor-pointer flex items-center justify-between"
+            >
+              How do I get paid?
+              <i
+                class="fas fa-chevron-down text-accent transition-transform group-open:rotate-180"
+              ></i>
+            </summary>
+            <p class="mt-3 opacity-80 pl-4 border-l-2 border-accent">
+              Winnings are sent instantly via mobile money transfer or airtime,
+              depending on your preference.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-accent text-bg py-12">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold mb-4">Ready to Win Big?</h2>
+        <p class="mb-6 max-w-lg mx-auto">
+          Join thousands of players who are winning daily with Jackpot Connect.
+          No app required!
+        </p>
+        <a href="sms:30000?body=PLAY" class="btn inline-flex items-center">
+            <i class="fas fa-sms mr-2"></i>
+            Text "PLAY" to 30000
+          </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-12">
+      <div
+        class="max-w-6xl mx-auto px-4 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 text-sm"
+      >
+        <div>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-dice text-accent mr-2"></i>
+            <p class="font-bold text-lg">Jackpot Connect</p>
+          </div>
+          <p class="text-sm">
+            Play our daily mobile lottery from anywhere, no internet required.
+          </p>
+        </div>
+        <div>
+          <p class="font-bold mb-4 text-accent">Legal</p>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="hover:text-accent transition-colors"
+                >Terms & Conditions</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-accent transition-colors"
+                >Privacy Policy</a
+              >
+            </li>
+            <li>
+              <a href="#" class="hover:text-accent transition-colors"
+                >Licensing</a
+              >
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-4 text-accent">Contact</p>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-headset mr-2 text-accent"></i> Customer Care
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-sms mr-2 text-accent"></i> SMS: 30000
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-accent"></i>
+              support@jackpotconnect.ng
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-4 text-accent">Follow Us</p>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="bg-card hover:bg-accent hover:text-bg transition-colors rounded-full w-10 h-10 flex items-center justify-center"
+            >
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a
+              href="#"
+              class="bg-card hover:bg-accent hover:text-bg transition-colors rounded-full w-10 h-10 flex items-center justify-center"
+            >
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a
+              href="#"
+              class="bg-card hover:bg-accent hover:text-bg transition-colors rounded-full w-10 h-10 flex items-center justify-center"
+            >
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="text-center py-4 border-t border-opacity-20 border-white text-xs mt-6"
+      >
+        © 2025 Jackpot Connect. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu functionality
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+        // Toggle menu icon
+        const icon = menuBtn.querySelector("i");
+        if (icon.classList.contains("fa-bars")) {
+          icon.classList.remove("fa-bars");
+          icon.classList.add("fa-times");
+        } else {
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        }
+      });
+
+      // Close mobile menu when clicking a link
+      const mobileLinks = document.querySelectorAll("#mobile-menu a");
+      mobileLinks.forEach((link) => {
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          const icon = menuBtn.querySelector("i");
+          icon.classList.remove("fa-times");
+          icon.classList.add("fa-bars");
+        });
+      });
+    </script>
+  </body>
+</html>

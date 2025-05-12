@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>BetaTips</title>
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --primary: #059669;
+        --primary-dark: #047857;
+        --primary-light: #10b981;
+        --primary-bg: #f0fdf4;
+        --text: #1f2937;
+        --text-light: #4b5563;
+        --accent: #fbbf24;
+      }
+      body {
+        color: var(--text);
+        font-family: 'Inter', system-ui, sans-serif;
+      }
+      .bg-primary { background-color: var(--primary); }
+      .bg-primary-dark { background-color: var(--primary-dark); }
+      .bg-primary-light { background-color: var(--primary-light); }
+      .bg-primary-bg { background-color: var(--primary-bg); }
+      .text-primary { color: var(--primary); }
+      .border-primary { border-color: var(--primary); }
+      
+      .btn-primary {
+        background-color: var(--primary);
+        color: white;
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        transition: all 0.2s;
+      }
+      .btn-primary:hover {
+        background-color: var(--primary-dark);
+      }
+      
+      .nav-active {
+        color: var(--primary);
+        font-weight: 600;
+      }
+      
+      /* Mobile menu */
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 3rem;
+        left: 0;
+        align-items: center;
+        right: 0;
+        background: white;
+        padding: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        z-index: 20;
+      }
+      .mobile-menu.active {
+        display: block;
+      }
+      /* Card hover effect */
+      .feature-card {
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .feature-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+      }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <!-- Top Bar -->
+    <header class="bg-white border-b border-gray-200 fixed w-full z-10 shadow-sm">
+      <div class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between">
+        <div class="flex items-center">
+          <i class="fas fa-chart-line text-primary mr-2"></i>
+          <span class="font-bold text-xl text-primary">BetaTips</span>
+        </div>
+        
+        <!-- Mobile menu button -->
+        <button id="menu-btn" class="md:hidden text-gray-600 focus:outline-none">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+        
+        <!-- Desktop nav -->
+        <nav class="hidden md:flex space-x-8 text-sm items-center">
+          <a href="#how" class="hover:text-primary transition-colors">How It Works</a>
+          <a href="#why" class="hover:text-primary transition-colors">Why Us</a>
+          <a href="#stories" class="hover:text-primary transition-colors">Success Stories</a>
+          <a href="#faq" class="hover:text-primary transition-colors">FAQ</a>
+          
+        </nav>
+      </div>
+      
+      <!-- Mobile menu -->
+      <div id="mobile-menu" class="mobile-menu">
+        <nav class="flex flex-col space-y-4 text-center">
+          <a href="#how" class="py-2 hover:text-primary transition-colors">How It Works</a>
+          <a href="#why" class="py-2 hover:text-primary transition-colors">Why Us</a>
+          <a href="#stories" class="py-2 hover:text-primary transition-colors">Success Stories</a>
+          <a href="#faq" class="py-2 hover:text-primary transition-colors">FAQ</a>
+          
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="bg-primary-bg pt-24 pb-16">
+      <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center">
+        <div class="md:w-1/2 md:pr-8 text-center md:text-left mb-8 md:mb-0">
+          <h1 class="text-3xl md:text-4xl font-extrabold mb-4 text-gray-800">
+            Win Smarter with Daily Expert Betting Tips
+          </h1>
+          <p class="mb-6 text-lg text-gray-600">
+            Subscribe via SMS. Get predictions. Place smarter bets.
+          </p>
+          <a
+            href="sms:32052?body=TIPS"
+            class="btn-primary inline-flex items-center"
+          >
+            <i class="fas fa-sms mr-2"></i>
+            Text "TIPS" to 32052
+          </a>
+        </div>
+        <div class="md:w-1/2 flex justify-center">
+          <img
+            src="../common/images/betatips.png"
+            alt="Sports betting tips on phone"
+            class="rounded-lg shadow-lg max-w-sm w-full object-cover"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- How It Works -->
+    <section id="how" class="py-16 bg-white">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12 relative">
+          <span class="inline-block pb-2 border-b-2 border-primary">How It Works</span>
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 text-center shadow-sm">
+            <div class="bg-primary-bg p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-comment-dots text-2xl text-primary"></i>
+            </div>
+            <p class="font-semibold text-lg">Text "TIPS"</p>
+            <p class="text-sm text-gray-600 mt-2">Start your winning journey with a simple text message</p>
+          </div>
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 text-center shadow-sm">
+            <div class="bg-primary-bg p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-chart-line text-2xl text-primary"></i>
+            </div>
+            <p class="font-semibold text-lg">Daily Predictions</p>
+            <p class="text-sm text-gray-600 mt-2">Receive expert analysis and betting odds daily</p>
+          </div>
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 text-center shadow-sm">
+            <div class="bg-primary-bg p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-check-circle text-2xl text-primary"></i>
+            </div>
+            <p class="font-semibold text-lg">Place Your Bets</p>
+            <p class="text-sm text-gray-600 mt-2">Use our insights to make informed betting decisions</p>
+          </div>
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 text-center shadow-sm">
+            <div class="bg-primary-bg p-4 rounded-full w-16 h-16 flex items-center justify-center mx-auto mb-4">
+              <i class="fas fa-trophy text-2xl text-primary"></i>
+            </div>
+            <p class="font-semibold text-lg">Win & Repeat</p>
+            <p class="text-sm text-gray-600 mt-2">Celebrate your success and continue growing your wins</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Why Us -->
+    <section id="why" class="py-16 bg-gray-50">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12 relative">
+          <span class="inline-block pb-2 border-b-2 border-primary">Why Use BetaTips?</span>
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-user-check text-primary text-xl mr-3"></i>
+              <p class="font-semibold">Real Analysts</p>
+            </div>
+            <p class="text-sm text-gray-600">Expert curated tips from professional sports analysts and insiders</p>
+          </div>
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-bullseye text-primary text-xl mr-3"></i>
+              <p class="font-semibold">80% Accuracy</p>
+            </div>
+            <p class="text-sm text-gray-600">High success rate on premium picks with verified track records</p>
+          </div>
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-calendar-day text-primary text-xl mr-3"></i>
+              <p class="font-semibold">Daily Insights</p>
+            </div>
+            <p class="text-sm text-gray-600">Fresh tips for top matches delivered every day to your phone</p>
+          </div>
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 shadow-sm">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-sms text-primary text-xl mr-3"></i>
+              <p class="font-semibold">100% SMS</p>
+            </div>
+            <p class="text-sm text-gray-600">Works without internet connection on any phone, anywhere, anytime</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Success Stories -->
+    <section id="stories" class="bg-white py-16">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12 relative">
+          <span class="inline-block pb-2 border-b-2 border-primary">Success Stories</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 shadow-sm flex items-start">
+            <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-user text-lg"></i>
+            </div>
+            <div class="ml-4">
+              <p class="font-semibold text-lg">Tobi • Lagos</p>
+              <p class="text-gray-600 mt-1">
+                "I've tripled my wins using BetaTips! The analysis is spot-on and I've been able to make much smarter betting decisions."
+              </p>
+              <div class="flex mt-2 text-amber-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <div class="feature-card bg-white border border-gray-100 rounded-lg p-6 shadow-sm flex items-start">
+            <div class="bg-primary text-white rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
+              <i class="fas fa-user text-lg"></i>
+            </div>
+            <div class="ml-4">
+              <p class="font-semibold text-lg">Sarah • Abuja</p>
+              <p class="text-gray-600 mt-1">
+                "I now bet smarter and more confidently. The daily tips have completely changed my approach to betting and improved my results."
+              </p>
+              <div class="flex mt-2 text-amber-500">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 bg-gray-50">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12 relative">
+          <span class="inline-block pb-2 border-b-2 border-primary">Frequently Asked Questions</span>
+        </h2>
+        <div class="space-y-4">
+          <details class="bg-white border border-gray-200 rounded-lg p-4 group">
+            <summary class="font-semibold cursor-pointer flex items-center justify-between">
+              How much does it cost?
+              <i class="fas fa-chevron-down text-primary transition-transform group-open:rotate-180"></i>
+            </summary>
+            <p class="mt-3 text-gray-600 pl-4 border-l-2 border-primary-light">₦50/day or ₦250/week for standard tips. Premium packages with higher accuracy rates are also available.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-lg p-4 group">
+            <summary class="font-semibold cursor-pointer flex items-center justify-between">
+              How do I cancel?
+              <i class="fas fa-chevron-down text-primary transition-transform group-open:rotate-180"></i>
+            </summary>
+            <p class="mt-3 text-gray-600 pl-4 border-l-2 border-primary-light">Text STOP to 32052 anytime. Your subscription will be canceled immediately with no additional charges.</p>
+          </details>
+          <details class="bg-white border border-gray-200 rounded-lg p-4 group">
+            <summary class="font-semibold cursor-pointer flex items-center justify-between">
+              Where can I place bets?
+              <i class="fas fa-chevron-down text-primary transition-transform group-open:rotate-180"></i>
+            </summary>
+            <p class="mt-3 text-gray-600 pl-4 border-l-2 border-primary-light">BetaTips provides tips only—use your preferred betting platform. Our tips work with all major betting sites and local bookmakers.</p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="bg-primary-dark text-white py-12">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold mb-4">Ready to Start Winning?</h2>
+        <p class="mb-6 max-w-lg mx-auto">Join thousands of smart bettors who are already using our expert tips to increase their winning rate.</p>
+        <a href="sms:32052?body=TIPS" class="inline-flex items-center bg-white text-primary font-semibold py-3 px-8 rounded-lg shadow-md hover:bg-gray-100 transition">
+          <i class="fas fa-sms mr-2"></i>
+          Text "TIPS" to 32052
+        </a>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-100">
+      <div class="max-w-6xl mx-auto px-4 py-12 grid sm:grid-cols-2 md:grid-cols-4 gap-8">
+        <div>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-chart-line text-primary mr-2"></i>
+            <p class="font-bold text-lg">BetaTips</p>
+          </div>
+          <p class="text-sm">SMS-based expert betting tips service helping you make smarter betting decisions.</p>
+        </div>
+        <div>
+          <p class="font-bold mb-4 text-primary-light">Legal</p>
+          <ul class="space-y-2">
+            <li><a href="#" class="text-sm hover:text-primary-light transition-colors">Terms & Conditions</a></li>
+            <li><a href="#" class="text-sm hover:text-primary-light transition-colors">Privacy Policy</a></li>
+            <li><a href="#" class="text-sm hover:text-primary-light transition-colors">Licensing</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-4 text-primary-light">Contact</p>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center"><i class="fas fa-headset mr-2 text-primary-light"></i> Customer Care</li>
+            <li class="flex items-center"><i class="fas fa-sms mr-2 text-primary-light"></i> SMS: 32052</li>
+            <li class="flex items-center"><i class="fas fa-envelope mr-2 text-primary-light"></i> support@betatips.com</li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-4 text-primary-light">Follow Us</p>
+          <div class="flex space-x-4">
+            <a href="#" class="bg-gray-800 hover:bg-primary transition-colors rounded-full w-10 h-10 flex items-center justify-center">
+              <i class="fab fa-twitter"></i>
+            </a>
+            <a href="#" class="bg-gray-800 hover:bg-primary transition-colors rounded-full w-10 h-10 flex items-center justify-center">
+              <i class="fab fa-facebook-f"></i>
+            </a>
+            <a href="#" class="bg-gray-800 hover:bg-primary transition-colors rounded-full w-10 h-10 flex items-center justify-center">
+              <i class="fab fa-instagram"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="text-center py-4 border-t border-gray-800 text-xs">
+        © 2025 BetaTips. All rights reserved.
+      </div>
+    </footer>
+
+    <script>
+      // Mobile menu functionality
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileMenu = document.getElementById('mobile-menu');
+      
+      menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('active');
+        // Toggle menu icon
+        const icon = menuBtn.querySelector('i');
+        if (icon.classList.contains('fa-bars')) {
+          icon.classList.remove('fa-bars');
+          icon.classList.add('fa-times');
+        } else {
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        }
+      });
+      
+      // Close mobile menu when clicking a link
+      const mobileLinks = mobileMenu.querySelectorAll('a');
+      mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+          mobileMenu.classList.remove('active');
+          const icon = menuBtn.querySelector('i');
+          icon.classList.remove('fa-times');
+          icon.classList.add('fa-bars');
+        });
+      });
+    </script>
+  </body>
+</html>

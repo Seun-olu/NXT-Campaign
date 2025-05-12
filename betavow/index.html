@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <title>Betavow</title>
+
+    <!-- Icons & Tailwind CDN -->
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- Dark-violet theme -->
+    <style>
+      :root {
+        --bg: #1e1b4b; /* deep indigo */
+        --card: #312e81; /* royal indigo */
+        --accent: #a78bfa; /* vivid violet */
+        --text: #f1f5f9; /* off-white */
+      }
+      body {
+        background: var(--bg);
+        color: var(--text);
+        font-family: "Inter", system-ui, sans-serif;
+      }
+      header,
+      footer {
+        background: var(--bg);
+      }
+      .card,
+      details {
+        background: var(--card);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 0.5rem;
+        transition: 0.2s;
+      }
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.25);
+      }
+      .btn {
+        background: var(--accent);
+        color: var(--bg);
+        padding: 0.75rem 1.5rem;
+        border-radius: 0.375rem;
+        font-weight: 600;
+        transition: 0.2s;
+      }
+      .btn:hover {
+        opacity: 0.9;
+        transform: translateY(-2px);
+      }
+      nav a {
+        transition: color 0.2s;
+      }
+      nav a:hover {
+        color: var(--accent);
+      }
+      .logo {
+        color: var(--accent);
+        font-weight: bold;
+        font-size: 1.5rem;
+      }
+      summary {
+        cursor: pointer;
+        font-weight: 600;
+      }
+      .mobile-menu {
+        display: none;
+        position: fixed;
+        top: 3rem;
+        left: 0;
+        right: 0;
+        background: var(--bg);
+        padding: 1rem;
+        box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.4);
+        z-index: 20;
+      }
+      .mobile-menu.active {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- ░░░ TOP BAR ░░░ -->
+    <header class="fixed w-full z-10 shadow-md">
+      <div
+        class="max-w-6xl mx-auto px-4 h-16 flex items-center justify-between"
+      >
+        <div class="flex items-center">
+          <i class="fas fa-headphones-alt mr-2 text-accent"></i>
+          <span class="logo">Betavow</span>
+        </div>
+
+        <!-- mobile toggle -->
+        <button
+          id="menu-btn"
+          class="md:hidden text-gray-300 focus:outline-none"
+        >
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+
+        <nav class="hidden md:flex space-x-6 text-sm items-center">
+          <a href="#how">How It Works</a>
+          <a href="#why">Why Betavow</a>
+          <a href="#stories">Testimonials</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+
+      <!-- mobile menu -->
+      <div id="mobile-menu" class="mobile-menu">
+        <nav class="flex flex-col space-y-4 text-center">
+          <a href="#how">How It Works</a>
+          <a href="#why">Why Betavow</a>
+          <a href="#stories">Testimonials</a>
+          <a href="#faq">FAQ</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ░░░ HERO ░░░ -->
+    <section
+      class="max-w-6xl mx-auto px-4 pt-28 pb-16 grid md:grid-cols-2 gap-10 items-center"
+    >
+      <div class="text-center md:text-left">
+        <h1 class="text-4xl font-extrabold mb-4">Listen. Win. Repeat!</h1>
+        <p class="mb-6 text-lg opacity-90">
+          Subscribe to Betavow Radio and enter our weekly raffle draw—no app or
+          data required.
+        </p>
+        <a href="sms:32052?body=VOW" class="btn inline-flex items-center">
+          <i class="fas fa-sms mr-2"></i> Text “VOW” to 32052
+        </a>
+      </div>
+
+      <div class="flex items-center justify-center">
+        <!-- replace src with your generated hero -->
+        <img
+          src="./assets/betavow.png"
+          alt="Tuning into Betavow Radio and winning cash"
+          class="rounded-lg shadow-lg w-full max-w-md object-cover h-64 md:h-auto"
+        />
+      </div>
+    </section>
+
+    <!-- ░░░ HOW IT WORKS ░░░ -->
+    <section id="how" class="py-16">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12">
+          <span class="border-b-2 border-accent pb-2">How It Works</span>
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 text-center">
+          <div class="card p-6">
+            <i
+              class="fas fa-sms text-3xl mb-4"
+              style="color: var(--accent)"
+            ></i>
+            <p class="font-semibold text-lg">Text “VOW”</p>
+            <p class="text-sm opacity-80 mt-1">to 32052</p>
+          </div>
+          <div class="card p-6">
+            <i
+              class="fas fa-broadcast-tower text-3xl mb-4"
+              style="color: var(--accent)"
+            ></i>
+            <p class="font-semibold text-lg">Access Radio</p>
+            <p class="text-sm opacity-80 mt-1">Daily stream link via SMS</p>
+          </div>
+          <div class="card p-6">
+            <i
+              class="fas fa-ticket-alt text-3xl mb-4"
+              style="color: var(--accent)"
+            ></i>
+            <p class="font-semibold text-lg">Stay Subscribed</p>
+            <p class="text-sm opacity-80 mt-1">Auto raffle entry weekly</p>
+          </div>
+          <div class="card p-6">
+            <i
+              class="fas fa-coins text-3xl mb-4"
+              style="color: var(--accent)"
+            ></i>
+            <p class="font-semibold text-lg">Win Cash</p>
+            <p class="text-sm opacity-80 mt-1">Prizes straight to wallet</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ WHY BETAVOW ░░░ -->
+    <section id="why" class="py-16 bg-opacity-5 bg-white">
+      <div class="max-w-5xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12">
+          <span class="border-b-2 border-accent pb-2">Why Betavow?</span>
+        </h2>
+
+        <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="card p-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-music mr-3 text-accent"></i>
+              <p class="font-semibold">Premium Radio</p>
+            </div>
+            <p class="text-sm opacity-80">
+              Curated talk, music & sports shows.
+            </p>
+          </div>
+
+          <div class="card p-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-wifi-slash mr-3 text-accent"></i>
+              <p class="font-semibold">No Data Needed</p>
+            </div>
+            <p class="text-sm opacity-80">
+              Listen via SMS link; basic phones welcome.
+            </p>
+          </div>
+
+          <div class="card p-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-gift mr-3 text-accent"></i>
+              <p class="font-semibold">Weekly Cash Raffles</p>
+            </div>
+            <p class="text-sm opacity-80">
+              Real ₦ prizes for active listeners.
+            </p>
+          </div>
+
+          <div class="card p-6">
+            <div class="flex items-center mb-3">
+              <i class="fas fa-sms mr-3 text-accent"></i>
+              <p class="font-semibold">100 % SMS</p>
+            </div>
+            <p class="text-sm opacity-80">
+              Everything handled by simple texts.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ TESTIMONIALS ░░░ -->
+    <section id="stories" class="py-16">
+      <div class="max-w-4xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12">
+          <span class="border-b-2 border-accent pb-2">Success Stories</span>
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="card p-6 flex">
+            <div
+              class="w-12 h-12 bg-accent text-card rounded-full flex items-center justify-center mr-4"
+            >
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+              <p class="font-semibold">Ada • Enugu</p>
+              <p class="text-sm opacity-80 mt-1">
+                “I won ₦5,000 just for listening to my gospel show!”
+              </p>
+            </div>
+          </div>
+
+          <div class="card p-6 flex">
+            <div
+              class="w-12 h-12 bg-accent text-card rounded-full flex items-center justify-center mr-4"
+            >
+              <i class="fas fa-user"></i>
+            </div>
+            <div>
+              <p class="font-semibold">Ken • Lagos</p>
+              <p class="text-sm opacity-80 mt-1">
+                “Radio + raffle? Betavow is genius!”
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ FAQ ░░░ -->
+    <section id="faq" class="py-16 bg-opacity-5 bg-white">
+      <div class="max-w-3xl mx-auto px-4">
+        <h2 class="text-center text-2xl font-bold mb-12">
+          <span class="border-b-2 border-accent pb-2">Frequently Asked Questions</span>
+        </h2>
+        <div class="space-y-4">
+          <details class="p-4 group">
+            <summary class="flex justify-between items-center">
+              How much does it cost?
+              <i
+                class="fas fa-chevron-down text-accent transition-transform group-open:rotate-180"
+              ></i>
+            </summary>
+            <p class="mt-3 pl-4 border-l-2 border-accent opacity-80">
+              ₦50/day or ₦250/week.
+            </p>
+          </details>
+          <details class="p-4 group">
+            <summary class="flex justify-between items-center">
+              How do I get the radio content?
+              <i
+                class="fas fa-chevron-down text-accent transition-transform group-open:rotate-180"
+              ></i>
+            </summary>
+            <p class="mt-3 pl-4 border-l-2 border-accent opacity-80">
+              A stream link is sent to you by SMS every day.
+            </p>
+          </details>
+          <details class="p-4 group">
+            <summary class="flex justify-between items-center">
+              How are winners selected?
+              <i
+                class="fas fa-chevron-down text-accent transition-transform group-open:rotate-180"
+              ></i>
+            </summary>
+            <p class="mt-3 pl-4 border-l-2 border-accent opacity-80">
+              Weekly random draw from active subscribers.
+            </p>
+          </details>
+          <details class="p-4 group">
+            <summary class="flex justify-between items-center">
+              How do I get my prize?
+              <i
+                class="fas fa-chevron-down text-accent transition-transform group-open:rotate-180"
+              ></i>
+            </summary>
+            <p class="mt-3 pl-4 border-l-2 border-accent opacity-80">
+              Payout to your wallet or bank account within 24 hours.
+            </p>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ░░░ CTA ░░░ -->
+    <section class="py-12" style="background: var(--card)">
+      <div class="max-w-4xl mx-auto px-4 text-center">
+        <h2 class="text-2xl font-bold mb-4">Ready to Tune In &amp; Win?</h2>
+        <p class="max-w-lg mx-auto mb-6 opacity-90">
+          Join thousands who listen to Betavow Radio daily and pocket cash
+          prizes every week.
+        </p>
+        <a href="sms:32052?body=VOW" class="btn inline-flex items-center"
+          ><i class="fas fa-sms mr-2"></i> Text “VOW” to 32052</a
+        >
+      </div>
+    </section>
+
+    <!-- ░░░ FOOTER ░░░ -->
+    <footer class="py-12">
+      <div
+        class="max-w-6xl mx-auto px-4 grid gap-8 sm:grid-cols-2 md:grid-cols-4 text-sm"
+      >
+        <div>
+          <div class="flex items-center mb-4">
+            <i class="fas fa-headphones-alt mr-2 text-accent"></i>
+            <p class="font-bold text-lg">Betavow</p>
+          </div>
+          <p>SMS Radio Entertainment &amp; Weekly Raffles.</p>
+        </div>
+        <div>
+          <p class="font-bold mb-4 text-accent">Legal</p>
+          <ul class="space-y-2">
+            <li>
+              <a href="#" class="hover:text-accent">Terms & Conditions</a>
+            </li>
+            <li><a href="#" class="hover:text-accent">Privacy Policy</a></li>
+            <li><a href="#" class="hover:text-accent">VAS License</a></li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-4 text-accent">Contact</p>
+          <ul class="space-y-2">
+            <li class="flex items-center">
+              <i class="fas fa-headset mr-2 text-accent"></i> Customer Care
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-sms mr-2 text-accent"></i> SMS: 32052
+            </li>
+            <li class="flex items-center">
+              <i class="fas fa-envelope mr-2 text-accent"></i>
+              support@betavow.ng
+            </li>
+          </ul>
+        </div>
+        <div>
+          <p class="font-bold mb-4 text-accent">Follow Us</p>
+          <div class="flex space-x-4">
+            <a
+              href="#"
+              class="w-9 h-9 rounded-full flex items-center justify-center bg-card hover:bg-accent hover:text-card"
+              ><i class="fab fa-twitter"></i
+            ></a>
+            <a
+              href="#"
+              class="w-9 h-9 rounded-full flex items-center justify-center bg-card hover:bg-accent hover:text-card"
+              ><i class="fab fa-facebook-f"></i
+            ></a>
+            <a
+              href="#"
+              class="w-9 h-9 rounded-full flex items-center justify-center bg-card hover:bg-accent hover:text-card"
+              ><i class="fab fa-instagram"></i
+            ></a>
+          </div>
+        </div>
+      </div>
+      <div
+        class="text-center text-gray-400 text-xs mt-6 border-t border-white/20 pt-4"
+      >
+        © 2025 Betavow. All rights reserved.
+      </div>
+    </footer>
+
+    <!-- ░░░ MOBILE MENU JS ░░░ -->
+    <script>
+      const menuBtn = document.getElementById("menu-btn");
+      const mobileMenu = document.getElementById("mobile-menu");
+      menuBtn.addEventListener("click", () => {
+        mobileMenu.classList.toggle("active");
+        const icon = menuBtn.querySelector("i");
+        icon.classList.toggle("fa-bars");
+        icon.classList.toggle("fa-times");
+      });
+      document.querySelectorAll("#mobile-menu a").forEach((link) =>
+        link.addEventListener("click", () => {
+          mobileMenu.classList.remove("active");
+          const icon = menuBtn.querySelector("i");
+          icon.classList.add("fa-bars");
+          icon.classList.remove("fa-times");
+        })
+      );
+    </script>
+  </body>
+</html>

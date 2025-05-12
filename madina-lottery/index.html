@@ -52,10 +52,30 @@
         transform: translateY(-2px);
       }
       nav a {
-        transition: color 0.2s;
+        position: relative;
+        transition: color 0.2s, transform 0.2s;
+        padding-bottom: 2px;
+        display: inline-block;
       }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--accent);
+        transition: width 0.3s ease;
+      }
+
       nav a:hover {
         color: var(--accent);
+        transform: scale(1.05);
+      }
+
+      nav a:hover::after {
+        width: 100%;
       }
       .logo {
         color: var(--accent);
@@ -111,7 +131,6 @@
             >Success Stories</a
           >
           <a href="#faq" class="hover:text-accent transition-colors">FAQ</a>
-          
         </nav>
       </div>
 
@@ -130,7 +149,6 @@
           <a href="#faq" class="py-2 hover:text-accent transition-colors"
             >FAQ</a
           >
-      
         </nav>
       </div>
     </header>
@@ -327,9 +345,7 @@
     <section id="faq" class="py-16 bg-opacity-10 bg-white">
       <div class="max-w-3xl mx-auto px-4">
         <h2 class="text-center text-2xl font-bold mb-12 relative">
-          <span class="inline-block pb-2 border-b-2 border-accent"
-            >FAQs</span
-          >
+          <span class="inline-block pb-2 border-b-2 border-accent">FAQs</span>
         </h2>
         <div class="space-y-4">
           <details class="card p-4 group">

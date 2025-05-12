@@ -39,6 +39,32 @@
         border-radius: 0.5rem;
         transition: 0.2s;
       }
+      nav a {
+        position: relative;
+        transition: color 0.2s, transform 0.2s;
+        padding-bottom: 2px;
+        display: inline-block;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 2px;
+        bottom: 0;
+        left: 0;
+        background-color: var(--accent);
+        transition: width 0.3s ease;
+      }
+
+      nav a:hover {
+        color: var(--accent);
+        transform: scale(1.05);
+      }
+
+      nav a:hover::after {
+        width: 100%;
+      }
       .btn {
         background: var(--accent);
         color: var(--bg);
